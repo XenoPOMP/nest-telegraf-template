@@ -16,6 +16,9 @@ dist-ssr
 # Un-comment lines bellow when you will use this template
 .env*
 
+# Session DB
+session_db.json
+
 # Vitest
 /coverage
 !/coverage/
