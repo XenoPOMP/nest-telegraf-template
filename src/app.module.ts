@@ -6,7 +6,6 @@ import { AppService } from './app.service';
 import { TelegrafModule } from 'nestjs-telegraf';
 
 import * as LocalSession from 'telegraf-session-local';
-import * as process from 'process';
 
 const sessions = new LocalSession({ database: 'session_db.json' });
 
