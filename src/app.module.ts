@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -15,9 +15,15 @@ const sessions = new LocalSession({ database: 'session_db.json' });
 		ConfigModule.forRoot({
 			isGlobal: true,
 		}),
-		TelegrafModule.forRoot({
-			middlewares: [sessions.middleware()],
-			token: process.env.TG_TOKEN,
+		TelegrafModule.forRootAsync({
+			imports: [ConfigModule],
+			useFactory: (configService: ConfigService) => {
+				return {
+					middlewares: [sessions.middleware()],
+					token: configService.getOrThrow('TG_TOKEN'),
+				};
+			},
+			inject: [ConfigService],
 		}),
 	],
 	controllers: [AppController],
