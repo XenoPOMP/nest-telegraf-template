@@ -11,9 +11,7 @@ const sessions = new LocalSession({ database: 'session_db.json' });
 
 @Module({
 	imports: [
-		ConfigModule.forRoot({
-			isGlobal: true,
-		}),
+		ConfigModule.forRoot(),
 		TelegrafModule.forRootAsync({
 			imports: [ConfigModule],
 			useFactory: (configService: ConfigService) => {
