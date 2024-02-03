@@ -1,4 +1,4 @@
-# Nest.js RESTful API template
+# Telegram Bot template
 
 ## Telegram Bot token
 
