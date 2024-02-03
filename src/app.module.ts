@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
-import { AppController } from './app.controller';
+import { AppUpdate } from './app.update';
 import { AppService } from './app.service';
 import { TelegrafModule } from 'nestjs-telegraf';
 
@@ -23,7 +23,7 @@ const sessions = new LocalSession({ database: 'session_db.json' });
 			inject: [ConfigService],
 		}),
 	],
-	controllers: [AppController],
-	providers: [AppService],
+	controllers: [],
+	providers: [AppService, AppUpdate],
 })
 export class AppModule {}
