@@ -1,11 +1,5 @@
 # Nest.js RESTful API template
 
-## Important!
+## Telegram Bot token
 
-This application is running on port which is described in `.env` file (`APP_PORT`).
-
-After cloning this repo, do these steps:
-1. Run
-```shell
-git rm .env* --cached
-```
+Add field `TG_TOKEN` to your `.env` file.
